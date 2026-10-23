@@ -24,7 +24,7 @@ if uploaded_file and hidden_api_key:
             try:
                 genai.configure(api_key=hidden_api_key)
                 # Updated to use the active production model identifier
-                model = genai.GenerativeModel("gemini-2.5-flash")
+                model = genai.GenerativeModel("gemini-3.8-flash")
 
                 with pdfplumber.open(uploaded_file) as pdf:
                     raw_text = "".join([page.extract_text() or "" for page in pdf.pages])
