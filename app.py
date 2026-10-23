@@ -23,7 +23,8 @@ if uploaded_file and hidden_api_key:
         with st.spinner("Extracting and structuring data..."):
             try:
                 genai.configure(api_key=hidden_api_key)
-                model = genai.GenerativeModel("gemini-1.5-flash")
+                # Updated to use the active production model identifier
+                model = genai.GenerativeModel("gemini-2.5-flash")
 
                 with pdfplumber.open(uploaded_file) as pdf:
                     raw_text = "".join([page.extract_text() or "" for page in pdf.pages])
